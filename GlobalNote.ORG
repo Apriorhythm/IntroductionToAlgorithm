@@ -1,0 +1,13 @@
+* 编译指令
+g++ -std=c++11 Yo.cpp
+
+
+* emacs
+
+** Hilight current line
+(global-hl-line-mode +1)
+
+** line number
+M-x
+linum-mode
+

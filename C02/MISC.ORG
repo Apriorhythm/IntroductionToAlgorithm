@@ -1,0 +1,36 @@
+﻿#+AUTHOR: Apriorhythm
+
+* Hoarse Logic
+The goal of Hoare logic is to provide a formal system for reasoning about
+program correctness
+
+* Partially correct & Totally correct
+_Partially Correct_
+The implementation of a function is partially correct with respect to its specification if, assuming the precondition is true just before the function executes, then if the function terminates, the postcondition is true.
+
+_Totally Correct_
+The implementation is totally correct if, again assuming the precondition is true before function executes, the function is guaranteed to terminate and when it does, the postcondition is true.
+Thus total correctness is partial correctness plus termination
+
+
+* 循环不变式、数学归纳法、归纳推理、演绎推理
+// 来源: https://blog.csdn.net/u011382381/article/details/52764933
+// 循环不变式是数学归纳法在计算机科学领域的延伸
+
+** 归纳推理（inductive reasoning）: 从包含特殊性知识的前提推出包含一般性知识的结论的推理。
+** 演绎推理（deductive reasoning）: 从包含一般性知识的前提推出包含特殊性知识的结论的推理。
+** 数学归纳法
+数学归纳法是数学上证明与自然数n有关的命题的一种方法。必须包括两步：
+      (1)验证当n取第一个自然数值n_0(如1，2等)时，命题正确；
+      (2)假设当n取某一自然数k时命题正确，以此推出当n=k+1时这个命题也正确。从而就可断定命题对于从n_0开始的所有自然数都成立。
+      由此可知，数学归纳法的研究对象是自然数整体（0，1，2，...）有关命题，结论具有必然性。
+** 循环不变式
+循环不变式（loop invariant）属于计算机科学的概念，它是指某段程序循环在循环前后该段程序的某种性质（通常指程序的正确性）保持不变。其分为三步：
+    （1）初始化（循环第一次迭代之前）的时候，A[1‥ j -1]的“有序性”是成立的；
+    （2）在循环的每次迭代过程中，A[1 ‥j -1]的“有序性”仍然保持；
+    （3）循环结束的时候，A[1 ‥ j-1]的“有序性”仍然成立。
+     容易看出，数学归纳法和循环不变式既有相同点也有不同点。
+** 数学归纳法和循环不变式的异同
+    相同点：都属于演绎推理；论证方法相似，都是在以初始结论成立为前提推理下一步结论成立。
+    不同点：数学归纳法针针对无限循环的自然数，循环不变式针对有限的循环迭代；前者分为两步，后者三步；前者应用范围更广，后者是前者在计算机科学领域的延伸。
+
