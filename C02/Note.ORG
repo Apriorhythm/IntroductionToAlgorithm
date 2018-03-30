@@ -71,5 +71,105 @@ void SelectionSort(int A[], int length)
 * Divide and Conquer
 分治模式在每一层递归上都有三个步骤
 - 分解(Divide)：将原问题分解成一系列子问题
-- 解决(Conquer): 赌鬼地解各子问题。若子问题足够小，则直接求解
+- 解决(Conquer): 递归地解各子问题。若子问题足够小，则直接求解
 - 合并(Combine): 将子问题的结果合并成原问题的解
+
+** Merge Sort(归并排序)
+*** C++ Implementation
+#+BEGIN_SRC C++
+void Merge(int A[], int start, int mid, int end)
+{
+    /* Calculate the length of elements */
+    int length1 = mid - start + 1;
+    int length2 = end - mid + 1;
+    int T1[length1];
+    int T2[length2];
+
+    /* Copy all data to T1 and T2 */
+    for (int i = 0; i < length1; i++)
+        T1[i] = A[start + i];
+
+    for (int i = 0; i < length2; i++)
+        T2[i] = A[mid + i + 1];
+
+    /* Merge to A */
+    int index = start;
+    int i1 = 0;
+    int i2 = 0;
+    while (i1 < length1 && i2 < length2)
+    {
+        if (T1[i1] < T2[i2])
+        {
+            A[index] = T1[i1];
+            i1++;
+        }
+        else
+        {
+            A[index] = T2[i2];
+            i2++;
+        }
+
+        index++;
+    }
+
+    /* Add left elements to A */
+    if (i1 < length1)
+    {
+        while (i1 < length1)
+        {
+            A[index] = T1[i1];
+            index++;
+            i1++;
+        }
+    }
+
+    if (i2 < length2)
+    {
+        while (i2 < length2)
+        {
+            A[index] = T2[i2];
+            index++;
+            i2++;
+        }
+    }
+}
+
+void MergeSort(int A[], int start, int end)
+{
+    if (start >= end)
+        return;
+
+    int mid = (start + end) / 2;
+
+    MergeSort(A, start, mid);
+    MergeSort(A, mid + 1, end);
+    Merge(A, start, mid, end);
+}
+#+END_SRC
+
+** InsertionSort递归形式
+#+BEGIN_SRC C++
+
+/*
+ * end = TheLengthOfArray(A) - 1
+ */
+void InsertionSortRecursive(int A[], int end)
+{
+    if (end == 0)
+        return;
+
+    InsertionSortRecursive(A, end - 1);
+
+    int key = A[end];
+    int i = end - 1;
+    while (i >= 0 && A[i] > key)
+    {
+        A[i + 1] = A[i];
+        i--;
+    }
+
+    A[i + 1] = key;
+}
+
+
+#+END_SRC
