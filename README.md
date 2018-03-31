@@ -1,4 +1,4 @@
-# IntroductionToAlgorithm
+# Introduction to Algorithm
 
 * Note
 
