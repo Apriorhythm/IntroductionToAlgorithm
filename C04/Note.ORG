@@ -1,3 +1,9 @@
 * 最长子串问题的相关解答
 https://blog.csdn.net/hcbbt/article/details/10454947
 https://www.cnblogs.com/conw/p/5896155.html
+
+
+这一章大部分都是证明题，证明不难看懂，需要高数知识
+但是，习题证明比较难，不知道需要多久。。。
+
+递归主方法是重点

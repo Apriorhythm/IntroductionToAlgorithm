@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -46,7 +47,11 @@ int main()
 
     int C[3][3] = {0};
 
+    cout << "Start: " << clock() << endl;
     SquareMarixMultiply(A, B, C, order);
+    cout << "End: " << clock() << endl;
+
+    cout << "############# A #############" << endl;
 
     cout << "############# A #############" << endl;
     ShowMatrix(A);
