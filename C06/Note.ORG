@@ -1,0 +1,4 @@
+
+* P86底部-MAX-HEAPIFY的Worst Case中2n/3来源：
+- https://stackoverflow.com/questions/9099110/worst-case-in-max-heapify-how-do-you-get-2n-3/12215545
+- https://math.stackexchange.com/questions/181022/worst-case-analysis-of-max-heapify-procedure
