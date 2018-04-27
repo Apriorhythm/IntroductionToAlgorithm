@@ -2,8 +2,6 @@
 
 using namespace std;
 
-
-
 void MaxHeapify(int A[], int root, int heapSize)
 {
     int left, right, largest;
@@ -27,14 +25,27 @@ void MaxHeapify(int A[], int root, int heapSize)
     }
 }
 
+void BuildMaxHeap(int A[], int heapSize)
+{
+    for (int i = heapSize / 2; i > 0; i--)
+        MaxHeapify(A, i, heapSize);
+}
+
+
 int main()
 {
-    int A[15] = {0, 27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
-    // 书本是MaxHeapify(A, 3)，3 - 1是因为树的序号从1开始，数组从0开始
-    MaxHeapify(A, 3, 15);
+    int length = 11;
+    int A[11] = {0, 4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
 
-    for (int i = 0; i < 15; i++)
-        cout << "(" << i + 1 << ")" << A[i] << " ";
+    /* 6.3-1
+    int length = 10;
+    int A[10] = {0, 5, 3, 17, 10, 84, 19, 6, 22, 9};
+    */
+
+    BuildMaxHeap(A, length - 1);
+
+    for (int i = 1; i < length; i++)
+        cout << "(" << i << ")" << A[i] << " ";
 
     cout << endl;
     return 0;
